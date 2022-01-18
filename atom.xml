@@ -6,7 +6,7 @@
   <link href="https://coolzc.github.io/atom.xml" rel="self"/>
   
   <link href="https://coolzc.github.io/"/>
-  <updated>2022-01-18T10:48:51.730Z</updated>
+  <updated>2022-01-18T11:54:48.797Z</updated>
   <id>https://coolzc.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随机过程-相关函数</title>
+    <link href="https://coolzc.github.io/2022/01/18/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B-%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/"/>
+    <id>https://coolzc.github.io/2022/01/18/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B-%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/</id>
+    <published>2022-01-18T11:04:01.000Z</published>
+    <updated>2022-01-18T11:54:48.797Z</updated>
+    
+    <content type="html"><![CDATA[<p>根据b站上的国科大<a href="https://www.bilibili.com/video/BV1V44y1z7yi?p=1">张颢老师</a>的课程板书记录，纯粹搬运，也许顺序上有根据自己的认识进行小小的改动。</p><div class="row">    <embed src="/pdf/correlation.pdf" width="100%" height="550" type="application/pdf"></div><div style='display: none'>相关函数的概念是表示两个随机过程的相似程度，这里讨论自相关和互相关两种。 ##### 不同的随机过程的互相关举一个例子， $Y = \alpha X$, 用**mean square error**表示 $E(Y - \alpha X)^2$,  ##### 自相关<div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;根据b站上的国科大&lt;a href=&quot;https://www.bilibili.com/video/BV1V44y1z7yi?p=1&quot;&gt;张颢老师&lt;/a&gt;的课程板书记录，纯粹搬运，也许顺序上有根据自己的认识进行小小的改动。&lt;/p&gt;
+
+
+	&lt;div class=&quot;row&quot;&gt;
+  </summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>2022新开始</title>
@@ -31,26 +55,6 @@
     <summary type="html">&lt;p&gt;2022年开始经营我的博客，力图记录下我在每一篇论文写作中的学习过程和心得。&lt;/p&gt;
 &lt;h2 id=&quot;首先挖一个坑&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#首先挖一个坑&quot;&gt;&lt;/a&gt; 首先挖一个坑：&lt;/h2&gt;
 &lt;p&gt;1.随机过程中的笔记&lt;br</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://coolzc.github.io/2022/01/18/hello-world/"/>
-    <id>https://coolzc.github.io/2022/01/18/hello-world/</id>
-    <published>2022-01-18T07:56:23.033Z</published>
-    <updated>2022-01-18T07:56:23.033Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2><h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
       
     
     
