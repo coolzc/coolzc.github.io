@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://coolzc.github.io/2022/01/18/spectral-analysis/</loc>
+    
+    <lastmod>2022-01-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://coolzc.github.io/2022/01/18/wss/</loc>
     
     <lastmod>2022-01-18</lastmod>
