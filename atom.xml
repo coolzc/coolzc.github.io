@@ -6,7 +6,7 @@
   <link href="https://coolzc.github.io/atom.xml" rel="self"/>
   
   <link href="https://coolzc.github.io/"/>
-  <updated>2022-01-18T12:12:32.989Z</updated>
+  <updated>2022-01-19T02:01:12.817Z</updated>
   <id>https://coolzc.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>杭图扫地僧</title>
+    <link href="https://coolzc.github.io/2022/01/19/hzlib-old-man/"/>
+    <id>https://coolzc.github.io/2022/01/19/hzlib-old-man/</id>
+    <published>2022-01-19T01:41:40.000Z</published>
+    <updated>2022-01-19T02:01:12.817Z</updated>
+    
+    <content type="html"><![CDATA[<p>杭图的人都很勤奋，<br />各个年龄阶段都有，<br />一早的自修室就已经被各路学习的人占满了座位。</p><p>这位老者坐姿很奇特，<br />每次都能遇见，<br />看看，室外高人的学习‘专座’：</p><p><img src="Slice.png" alt="old_man" /></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;杭图的人都很勤奋，&lt;br /&gt;
+各个年龄阶段都有，&lt;br /&gt;
+一早的自修室就已经被各路学习的人占满了座位。&lt;/p&gt;
+&lt;p&gt;这位老者坐姿很奇特，&lt;br /&gt;
+每次都能遇见，&lt;br /&gt;
+看看，室外高人的学习‘专座’：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;Slice.png&quot; </summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>随机过程(3)-谱分析</title>
