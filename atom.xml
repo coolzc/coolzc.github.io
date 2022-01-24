@@ -6,7 +6,7 @@
   <link href="https://coolzc.github.io/atom.xml" rel="self"/>
   
   <link href="https://coolzc.github.io/"/>
-  <updated>2022-01-24T16:02:04.802Z</updated>
+  <updated>2022-01-24T16:04:28.370Z</updated>
   <id>https://coolzc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://coolzc.github.io/2022/01/24/bin-packing/"/>
     <id>https://coolzc.github.io/2022/01/24/bin-packing/</id>
     <published>2022-01-24T15:43:06.000Z</published>
-    <updated>2022-01-24T16:02:04.802Z</updated>
+    <updated>2022-01-24T16:04:28.370Z</updated>
     
     <content type="html"><![CDATA[<p>因为装箱问题是NP难问题,wiki中的<a href="https://en.wikipedia.org/wiki/Bin_packing_problem">Hardness of bin packing</a>部分有说明。<br />所谓的FFD算法是指First-fit-decreasing bin packing算法。<br />但是尝试了很久,使用FFD的方法没有找到过反例,即非最优的解,网上搜索,大部分搜索到的是如下图的<a href="https://blog.csdn.net/PacosonSWJTU/article/details/50083409">求解例子</a>:<br /><img src="bin_packing.png" alt="img" /><br />自己尝试了几组简单的数字组合的例子,FFD都能找到的都是最优解。<br />后来尝试查找wiki, 总算找到一个<a href="https://en.wikipedia.org/wiki/First-fit-decreasing_bin_packing">反例</a>了：<br />当输入的items的size为44, 24, 24, 22, 21, 17, 8, 8, 6, 6.<br />箱子的capacity为61.<br />那么可以得到的解为（44，17）（24，24，8）（22，21，8，6）（6）,<br />而实际上，可以得到含有三个箱子的解：（44，8，8）（24，24，6，6）（22，21，17）</p>]]></content>
     
@@ -35,6 +35,8 @@
     
     
     
+    <category term="组合优化" scheme="https://coolzc.github.io/tags/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96/"/>
+    
   </entry>
   
   <entry>
@@ -42,7 +44,7 @@
     <link href="https://coolzc.github.io/2022/01/19/hzlib-old-man/"/>
     <id>https://coolzc.github.io/2022/01/19/hzlib-old-man/</id>
     <published>2022-01-19T01:41:40.000Z</published>
-    <updated>2022-01-19T04:20:26.383Z</updated>
+    <updated>2022-01-24T16:04:54.546Z</updated>
     
     <content type="html"><![CDATA[<p>杭图的人都很勤奋，<br />各个年龄阶段都有，<br />一早的自修室就已经被各路学习的人占满了座位。</p><p>这位老者坐姿很奇特，<br />每次都能遇见，<br />看看，室外高人的学习‘专座’：</p><p><img src="Slice.png" alt="old_man" /><br />年轻人们，少刷手机多看书，每天运动少躺平~</p>]]></content>
     
@@ -61,6 +63,8 @@
     
     
     
+    <category term="个人" scheme="https://coolzc.github.io/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
   </entry>
   
   <entry>
@@ -68,7 +72,7 @@
     <link href="https://coolzc.github.io/2022/01/18/spectral-analysis/"/>
     <id>https://coolzc.github.io/2022/01/18/spectral-analysis/</id>
     <published>2022-01-18T12:11:28.000Z</published>
-    <updated>2022-01-22T04:01:25.505Z</updated>
+    <updated>2022-01-24T16:05:00.395Z</updated>
     
     <content type="html"><![CDATA[<p>根据b站上的国科大<a href="https://www.bilibili.com/video/BV1V44y1z7yi?p=1">张颢老师</a>的课程板书记录，纯粹搬运，也许顺序上有根据自己的学习认知进行小小的改动。<br /><img src="spectral_analysis-1.png" alt="img" /><br /><img src="spectral_analysis-2.png" alt="img" /><br /><img src="spectral_analysis-3.png" alt="img" /><br /><img src="spectral_analysis-4.png" alt="img" /><br /><img src="spectral_analysis-5.png" alt="img" /></p>]]></content>
     
@@ -82,6 +86,8 @@
     
     
     
+    <category term="随机过程" scheme="https://coolzc.github.io/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/"/>
+    
   </entry>
   
   <entry>
@@ -89,7 +95,7 @@
     <link href="https://coolzc.github.io/2022/01/18/wss/"/>
     <id>https://coolzc.github.io/2022/01/18/wss/</id>
     <published>2022-01-18T12:05:17.000Z</published>
-    <updated>2022-01-22T03:30:49.665Z</updated>
+    <updated>2022-01-24T16:05:06.950Z</updated>
     
     <content type="html"><![CDATA[<p>根据b站上的国科大<a href="https://www.bilibili.com/video/BV1V44y1z7yi?p=1">张颢老师</a>的课程板书记录，纯粹搬运，也许顺序上有根据自己的学习认知进行小小的改动。<br /><img src="wss.png" alt="img" /><br /><img src="wss-2.png" alt="img" /><br /><img src="wss-3.png" alt="img" /><br /><img src="wss-4.png" alt="img" /><br /><img src="wss-5.png" alt="img" /></p>]]></content>
     
@@ -103,6 +109,8 @@
     
     
     
+    <category term="随机过程" scheme="https://coolzc.github.io/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/"/>
+    
   </entry>
   
   <entry>
@@ -110,7 +118,7 @@
     <link href="https://coolzc.github.io/2022/01/18/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B-%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/"/>
     <id>https://coolzc.github.io/2022/01/18/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B-%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/</id>
     <published>2022-01-18T11:04:01.000Z</published>
-    <updated>2022-01-22T04:04:50.159Z</updated>
+    <updated>2022-01-24T16:05:16.708Z</updated>
     
     <content type="html"><![CDATA[<p>根据b站上的国科大<a href="https://www.bilibili.com/video/BV1V44y1z7yi?p=1">张颢老师</a>的课程板书记录，纯粹搬运，也许顺序上有根据自己的学习认知进行小小的改动。<br /><img src="correlation-1.png" alt="img" /><br /><img src="correlation-2.png" alt="img" /><br /><img src="correlation-3.png" alt="img" /></p>]]></content>
     
@@ -124,6 +132,8 @@
     
     
     
+    <category term="随机过程" scheme="https://coolzc.github.io/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/"/>
+    
   </entry>
   
   <entry>
@@ -131,7 +141,7 @@
     <link href="https://coolzc.github.io/2022/01/18/2022%E6%96%B0%E5%BC%80%E5%A7%8B/"/>
     <id>https://coolzc.github.io/2022/01/18/2022%E6%96%B0%E5%BC%80%E5%A7%8B/</id>
     <published>2022-01-18T10:42:25.000Z</published>
-    <updated>2022-01-18T10:48:51.730Z</updated>
+    <updated>2022-01-24T16:05:35.270Z</updated>
     
     <content type="html"><![CDATA[<p>2022年开始经营我的博客，力图记录下我在每一篇论文写作中的学习过程和心得。</p><h2 id="首先挖一个坑"><a class="markdownIt-Anchor" href="#首先挖一个坑"></a> 首先挖一个坑：</h2><p>1.随机过程中的笔记<br />2.凸优化的笔记<br />3.排队论笔记<br />4.联邦学习笔记</p>]]></content>
     
@@ -145,6 +155,8 @@
     
     
     
+    
+    <category term="个人" scheme="https://coolzc.github.io/tags/%E4%B8%AA%E4%BA%BA/"/>
     
   </entry>
   

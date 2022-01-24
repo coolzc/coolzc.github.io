@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://coolzc.github.io/2022/01/24/bin-packing/</loc>
+    <loc>https://coolzc.github.io/2022/01/18/2022%E6%96%B0%E5%BC%80%E5%A7%8B/</loc>
     
     <lastmod>2022-01-24</lastmod>
     
@@ -13,16 +13,7 @@
   <url>
     <loc>https://coolzc.github.io/2022/01/18/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B-%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/</loc>
     
-    <lastmod>2022-01-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://coolzc.github.io/2022/01/18/spectral-analysis/</loc>
-    
-    <lastmod>2022-01-22</lastmod>
+    <lastmod>2022-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,7 +22,16 @@
   <url>
     <loc>https://coolzc.github.io/2022/01/18/wss/</loc>
     
-    <lastmod>2022-01-22</lastmod>
+    <lastmod>2022-01-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolzc.github.io/2022/01/18/spectral-analysis/</loc>
+    
+    <lastmod>2022-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -40,7 +40,16 @@
   <url>
     <loc>https://coolzc.github.io/2022/01/19/hzlib-old-man/</loc>
     
-    <lastmod>2022-01-19</lastmod>
+    <lastmod>2022-01-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolzc.github.io/2022/01/24/bin-packing/</loc>
+    
+    <lastmod>2022-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -50,15 +59,6 @@
     <loc>https://coolzc.github.io/about/index.html</loc>
     
     <lastmod>2022-01-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://coolzc.github.io/2022/01/18/2022%E6%96%B0%E5%BC%80%E5%A7%8B/</loc>
-    
-    <lastmod>2022-01-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -126,6 +126,27 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://coolzc.github.io/tags/%E4%B8%AA%E4%BA%BA/</loc>
+    <lastmod>2022-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolzc.github.io/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/</loc>
+    <lastmod>2022-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolzc.github.io/tags/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2022-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 
   
