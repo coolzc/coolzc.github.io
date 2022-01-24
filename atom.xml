@@ -6,7 +6,7 @@
   <link href="https://coolzc.github.io/atom.xml" rel="self"/>
   
   <link href="https://coolzc.github.io/"/>
-  <updated>2022-01-19T04:20:26.383Z</updated>
+  <updated>2022-01-24T15:54:45.221Z</updated>
   <id>https://coolzc.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用FFD得装箱问题的近似解</title>
+    <link href="https://coolzc.github.io/2022/01/24/bin-packing/"/>
+    <id>https://coolzc.github.io/2022/01/24/bin-packing/</id>
+    <published>2022-01-24T15:43:06.000Z</published>
+    <updated>2022-01-24T15:54:45.221Z</updated>
+    
+    <content type="html"><![CDATA[<p>因为装箱问题是NP难问题,wiki中的<a href="https://en.wikipedia.org/wiki/Bin_packing_problem">Hardness of bin packing</a>部分有说明。<br />但是尝试了很久,使用FFD的方法没有找到过反例,即非最优的解,网上搜索,大部分搜索到的是如下图的求解例子:<br /><img src="pin_packing.png" alt="img" /><br />自己尝试了几组简单的数字组合的例子,FFD都能找到的都是最优解。<br />后来尝试查找wiki,总算找到一个反例了：<br />当输入的items的size为44, 24, 24, 22, 21, 17, 8, 8, 6, 6.<br />箱子的capacity为61.<br />那么可以得到的解为（44，17）（24，24，8）（22，21，8，6）（6）,<br />而实际上，可以得到含有三个箱子的解：（44，8，8）（24，24，6，6）（22，21，17）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;因为装箱问题是NP难问题,wiki中的&lt;a href=&quot;https://en.wikipedia.org/wiki/Bin_packing_problem&quot;&gt;Hardness of bin packing&lt;/a&gt;部分有说明。&lt;br /&gt;
+但是尝试了很久,使用FFD的方法没有</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>杭图扫地僧</title>
