@@ -27,11 +27,13 @@
 <meta property="og:site_name" content="城东第一运动员">
 <meta property="og:description" content="使用帕累托的原则去求解多目标优化问题，往往是一件困难的事情。 此处用相关的文章去理一理MGDA这个方法，文章[1]提出了此方法，文章[2]将该方法用在ANN上，并且做了一些关于多目标优化中，使用ANN得出帕累托最优的上界的推导，文章[3]利用文章[2]的结论将该方法用在推荐系统。 Some records from papers are listed as follows: In the pape">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://coolzc.github.io/2022/02/05/pareto-multi-objective/mgda.png">
 <meta property="article:published_time" content="2022-02-05T04:47:29.000Z">
-<meta property="article:modified_time" content="2022-02-05T07:08:52.221Z">
+<meta property="article:modified_time" content="2022-02-08T08:04:35.184Z">
 <meta property="article:author" content="Cheng Zhang">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://coolzc.github.io/2022/02/05/pareto-multi-objective/mgda.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://coolzc.github.io/2022/02/05/pareto-multi-objective/index.html">
   
@@ -209,7 +211,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA/">个人</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96/">组合优化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/">随机过程</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA/">个人</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96/">组合优化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/">随机过程</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -219,7 +221,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%83%B3/" rel="tag">感想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%83%B3/" rel="tag">感想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -238,7 +240,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -250,6 +252,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/06/sub-gradient/" class="title">次梯度</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-06T14:30:08.000Z" itemprop="datePublished">2022-02-06</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -306,21 +323,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2022-01-18T12:11:28.000Z" itemprop="datePublished">2022-01-18</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/">随机过程</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/01/18/wss/" class="title">随机过程(2)-宽平稳过程</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-01-18T12:05:17.000Z" itemprop="datePublished">2022-01-18</time>
               </p>
             </div>
           </li>
@@ -408,9 +410,13 @@ Some important results are:</p>
 <p><font color=blue>所以，实际上，我们利用Pareto-stationary对于Pareto-optimal的必要性，去求解所有的Pareto-stationary解，因为于Pareto-optimal必然存在于所有的的Pareto-stationary解集当中，然后利用帕累托支配接的定义，从中筛出optimal的解.<br />
 进一步地，如果不能穷举所有的帕累托稳定解，那么只能从帕累托稳定解中得到近似的帕累托最优解。<br />
 </font></p>
+<hr />
+<p>从下图，MGDA的算法收敛推导[4]可以看出，这种收敛主要是因为自变量空进的有界，所以算法可以收敛。<br />
+<img src="mgda.png" alt="" /></p>
 <p>[1] Multiple-gradient descent algorithm (MGDA) for multiobjective optimization<br />
 [2] A Pareto-Efficient Algorithm for Multiple Objective Optimization in E-Commerce Recommendation<br />
-[3] Multi-Task Learning as Multi-Objective Optimization</p>
+[3] Multi-Task Learning as Multi-Objective Optimization<br />
+[4] Multiple-Gradient Descent Algorithm (MGDA)</p>
 
       
     </div>
@@ -465,6 +471,10 @@ Some important results are:</p>
   <div class="bar-inner">
   
   <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/02/06/sub-gradient/" title="次梯度"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
     
     
     <li class="next">
