@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://coolzc.github.io/2022/02/09/convergence-pareto/algo.png">
 <meta property="article:published_time" content="2022-02-09T14:14:57.000Z">
-<meta property="article:modified_time" content="2022-02-09T15:30:43.125Z">
+<meta property="article:modified_time" content="2022-02-09T15:32:29.567Z">
 <meta property="article:author" content="Cheng Zhang">
 <meta property="article:tag" content="多目标优化">
 <meta name="twitter:card" content="summary">
@@ -412,7 +412,6 @@
 <p>对比与前一篇文章 <a href="/2022/02/05/pareto-multi-objective/" title="一种多目标优化中的pareto最优解的方法---MGDA的小结">一种多目标优化中的pareto最优解的方法---MGDA的小结</a>中分析的MGDA算法，这两篇文章(同一作者)更加理论的分析了算法的收敛性，前一篇文章的算法收敛性分析，简直跟没有分析一样。。。当然这两个算法的思路也不一样。MGDA算法几乎不能保证找找到的是pareto efficient解，因为他只保证是pareto stationary解，但是[1]中的Lemma 2.1分析了，如果多目标的问题是convex，pareto stationary即为weakly Pareto optimal，所以也能说明如果MGDA找到了精确的pareto stationary解，即找到pareto efficient解。</p>
 <p>[1] Convergence rates analysis of a multiobjective proximal gradient method<br />
 [2] Merit functions for multiobjective optimization and convergence rates analysis of multiobjective proximal gradient methods</p>
-<p>基于提出的算法用prox- imal gradient method迭代求解, 但是要如何分析收敛性呢, 最终的解为什么是pareto efficient的解呢，</p>
 
       
     </div>
