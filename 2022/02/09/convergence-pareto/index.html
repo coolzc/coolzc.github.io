@@ -20,16 +20,16 @@
   
   
   <title>多目标优化过程中的Pareto解的收敛性 | cheng&#39;s blog</title>
-  <meta name="description" content="求解多目标问题的pareto解的算法大多采用迭代的方法，在这里只要做一个简短的论文[1]的笔记,[1]中的方法首先设计了merit function，然后采用merit function趋于0等效于寻找到pareto的解的策略， 针对原问题进行pareto的解的迭代求解，迭代的过程是用了proximal gradient method去求解problem.  Merit Function 而[2]">
+  <meta name="description" content="求解多目标问题的pareto解的算法大多采用迭代的方法，在这里只要做一个简短的论文[1]Convergence rates analysis of a multiobjective proximal gradient method的笔记,[1]中的方法首先设计了merit function，然后采用merit function趋于0等效于寻找到pareto的解的策略， 针对原问题进行pareto的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多目标优化过程中的Pareto解的收敛性">
 <meta property="og:url" content="https://coolzc.github.io/2022/02/09/convergence-pareto/index.html">
 <meta property="og:site_name" content="城东第一运动员">
-<meta property="og:description" content="求解多目标问题的pareto解的算法大多采用迭代的方法，在这里只要做一个简短的论文[1]的笔记,[1]中的方法首先设计了merit function，然后采用merit function趋于0等效于寻找到pareto的解的策略， 针对原问题进行pareto的解的迭代求解，迭代的过程是用了proximal gradient method去求解problem.  Merit Function 而[2]">
+<meta property="og:description" content="求解多目标问题的pareto解的算法大多采用迭代的方法，在这里只要做一个简短的论文[1]Convergence rates analysis of a multiobjective proximal gradient method的笔记,[1]中的方法首先设计了merit function，然后采用merit function趋于0等效于寻找到pareto的解的策略， 针对原问题进行pareto的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://coolzc.github.io/2022/02/09/convergence-pareto/algo.png">
 <meta property="article:published_time" content="2022-02-09T14:14:57.000Z">
-<meta property="article:modified_time" content="2022-02-10T02:20:47.129Z">
+<meta property="article:modified_time" content="2022-02-14T17:08:53.364Z">
 <meta property="article:author" content="Cheng Zhang">
 <meta property="article:tag" content="多目标优化">
 <meta name="twitter:card" content="summary">
@@ -211,7 +211,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA/">个人</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96/">组合优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/">随机过程</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA/">个人</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96/">组合优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/">随机过程</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -221,7 +221,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%9B%AE%E6%A0%87%E4%BC%98%E5%8C%96/" rel="tag">多目标优化</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%83%B3/" rel="tag">感想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%9B%AE%E6%A0%87%E4%BC%98%E5%8C%96/" rel="tag">多目标优化</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%83%B3/" rel="tag">感想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -231,7 +231,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/%E5%A4%9A%E7%9B%AE%E6%A0%87%E4%BC%98%E5%8C%96/" style="font-size: 13.5px;">多目标优化</a> <a href="/tags/%E6%84%9F%E6%83%B3/" style="font-size: 13px;">感想</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 14px;">数学</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13px;">算法</a>
+      <a href="/tags/%E5%A4%9A%E7%9B%AE%E6%A0%87%E4%BC%98%E5%8C%96/" style="font-size: 14px;">多目标优化</a> <a href="/tags/%E6%84%9F%E6%83%B3/" style="font-size: 13px;">感想</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 13.5px;">数学</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13px;">算法</a>
     </div>
   </div>
 
@@ -240,7 +240,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -252,6 +252,36 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/15/A-SURVEY-ON-MULTIOBJECTIVE-DESCENT-METHODS/" class="title">论文解读----A SURVEY ON MULTIOBJECTIVE DESCENT METHODS</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-15T12:17:29.000Z" itemprop="datePublished">2022-02-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/11/Proximal-gradient-methods-for-multiobjective-optimization-and-their-applications/" class="title">Proximal gradient methods for multiobjective problem</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-11T11:00:04.000Z" itemprop="datePublished">2022-02-11</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -293,36 +323,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2022-02-06T14:30:08.000Z" itemprop="datePublished">2022-02-06</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/02/05/pareto-multi-objective/" class="title">一种多目标优化中的pareto最优解的方法---MGDA的小结</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-02-05T04:47:29.000Z" itemprop="datePublished">2022-02-05</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96/">组合优化</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/01/24/bin-packing/" class="title">用FFD得装箱问题的非近似解</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-01-24T15:43:06.000Z" itemprop="datePublished">2022-01-24</time>
               </p>
             </div>
           </li>
@@ -387,7 +387,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>求解多目标问题的pareto解的算法大多采用迭代的方法，在这里只要做一个简短的论文[1]的笔记,[1]中的方法首先设计了merit function，然后采用merit function趋于0等效于寻找到pareto的解的策略，<br />
+        <p>求解多目标问题的pareto解的算法大多采用迭代的方法，在这里只要做一个简短的论文[1]Convergence rates analysis of a multiobjective proximal gradient method的笔记,[1]中的方法首先设计了merit function，然后采用merit function趋于0等效于寻找到pareto的解的策略，<br />
 针对原问题进行pareto的解的迭代求解，迭代的过程是用了proximal gradient method去求解problem.</p>
 <h3 id="merit-function"><a class="markdownIt-Anchor" href="#merit-function"></a> Merit Function</h3>
 <p>而[2]中解释了,Merit function与pareto解之间的关系,如下,Merit function为</p>
