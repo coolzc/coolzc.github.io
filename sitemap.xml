@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://coolzc.github.io/2022/02/23/Convex-sets-Convex-optimization/</loc>
+    
+    <lastmod>2022-02-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://coolzc.github.io/2022/02/15/A-SURVEY-ON-MULTIOBJECTIVE-DESCENT-METHODS/</loc>
     
     <lastmod>2022-02-18</lastmod>
@@ -128,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://coolzc.github.io/categories/index.html</loc>
+    <loc>https://coolzc.github.io/books/index.html</loc>
     
     <lastmod>2022-01-18</lastmod>
     
@@ -137,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://coolzc.github.io/books/index.html</loc>
+    <loc>https://coolzc.github.io/categories/index.html</loc>
     
     <lastmod>2022-01-18</lastmod>
     
@@ -175,7 +184,7 @@
 
   <url>
     <loc>https://coolzc.github.io/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -183,28 +192,28 @@
   
   <url>
     <loc>https://coolzc.github.io/tags/%E5%A4%9A%E7%9B%AE%E6%A0%87%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://coolzc.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://coolzc.github.io/tags/%E6%84%9F%E6%83%B3/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://coolzc.github.io/tags/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -213,28 +222,28 @@
   
   <url>
     <loc>https://coolzc.github.io/categories/%E4%B8%AA%E4%BA%BA/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://coolzc.github.io/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://coolzc.github.io/categories/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://coolzc.github.io/categories/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
