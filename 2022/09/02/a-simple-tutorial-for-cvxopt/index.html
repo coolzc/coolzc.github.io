@@ -28,7 +28,7 @@
 <meta property="og:description" content="针对官方cvxopt文档中的nonlinear optimization进行一些记录 https:&#x2F;&#x2F;cvxopt.org&#x2F;userguide&#x2F;solvers.html#problems-with-nonlinear-objectives 首先着眼于该示例’Example: equality constrained analytic centering’ 12345678910111213from">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-02T06:06:15.000Z">
-<meta property="article:modified_time" content="2022-09-02T10:11:08.024Z">
+<meta property="article:modified_time" content="2022-09-02T12:11:13.419Z">
 <meta property="article:author" content="Cheng Zhang">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
@@ -376,7 +376,7 @@
 <a target="_blank" rel="noopener" href="https://cvxopt.org/userguide/solvers.html#problems-with-nonlinear-objectives">https://cvxopt.org/userguide/solvers.html#problems-with-nonlinear-objectives</a></p>
 <p>首先着眼于该示例’Example: equality constrained analytic centering’</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> cvxopt <span class="keyword">import</span> solvers, matrix, spdiag, log</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">acent</span>(<span class="params">A, b</span>):</span><br><span class="line">    m, n = A.size</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">F</span>(<span class="params">x=<span class="literal">None</span>, z=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> <span class="number">0</span>, matrix(<span class="number">1.0</span>, (n,<span class="number">1</span>))</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">min</span>(x) &lt;= <span class="number">0.0</span>: <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        f = -<span class="built_in">sum</span>(log(x))</span><br><span class="line">        Df = -(x**-<span class="number">1</span>).T</span><br><span class="line">        <span class="keyword">if</span> z <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> f, Df</span><br><span class="line">        H = spdiag(z[<span class="number">0</span>] * x**-<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> f, Df, H</span><br><span class="line">    <span class="keyword">return</span> solvers.cp(F, A=A, b=b)[<span class="string">&#x27;x&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<p>对上述代码中，这里详细描述下以下这段的作用</p>
+<p>对上述代码中，这里详细描述其中关于<code>x</code>的判断的代码作用.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> <span class="number">0</span>, matrix(<span class="number">1.0</span>, (n,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
 <p>这一段非常重要,因为当第一次cvxopt调用F函数的时候,会传入x=None（具体原因没有深究，我理解为初始化吧…）,这个时候,就需要我们手动去对<code>x</code>进行初始化赋值，根据目标函数的形式，将其初始化一个符合约束的合理的值,例子中的<code>x</code>在分母位置,所以这里的代码是将其全部赋值为<code>1</code>.文档中别的示例也将其赋值为<code>0</code>, 只要是一个合理的值就可以,当然初值的赋值可能会影响到收敛的时间和最终解,这里需要一些技巧提前对目标函数进行分析,然后设置一个合理的初始值.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">min</span>(x) &lt;= <span class="number">0.0</span>: <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
@@ -388,12 +388,12 @@
 <code>Df</code>是<code>f</code>的梯度,需要对objective function事先求解出其derivative funciton后放置在<code>F</code>方法内,确保最终是行向量的形式<br />
 <code>H</code>是Hessian矩阵,需要对objective function事先求解出Hessian矩阵,然后放置在<code>F</code>方法内,确保最终是<code>matrix</code>形式的变量</p>
 <p>cvxopt将Nonlinear Convex Optimization中的不等式约束分为了三种:</p>
-<ol>
+<ul>
 <li>nonnegative orthant,</li>
 <li>second-order cones,</li>
 <li>positive semidefinite cones.<br />
 这三种约束分别需要写入<code>G,h</code>中去,如果原问题含有非线性的不等式约束,那么需要在<code>Df[k,:]</code>中写入该约束的梯度信息,其中<code>k&gt;0</code>,<code>k=0</code>为原问题的梯度. <code>z[0]</code>表示原文题的梯度前面的系数,在调试中发现,cvxopt将其赋值为<code>1</code>,但是有时候也会赋值为<code>None</code>所以就需要判断其值,有如下代码进行判断</li>
-</ol>
+</ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> z <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> f, Df</span><br></pre></td></tr></table></figure>
 
       
