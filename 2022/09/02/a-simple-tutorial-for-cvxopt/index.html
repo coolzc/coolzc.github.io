@@ -28,7 +28,7 @@
 <meta property="og:description" content="针对官方cvxopt文档中的nonlinear optimization进行一些记录 https:&#x2F;&#x2F;cvxopt.org&#x2F;userguide&#x2F;solvers.html#problems-with-nonlinear-objectives 首先着眼于该示例’Example: equality constrained analytic centering’ 12345678910111213from">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-02T06:06:15.000Z">
-<meta property="article:modified_time" content="2022-09-02T12:17:58.979Z">
+<meta property="article:modified_time" content="2022-09-02T12:21:31.678Z">
 <meta property="article:author" content="Cheng Zhang">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
@@ -395,7 +395,7 @@
 这三种约束分别需要写入<code>G,h</code>中去,如果原问题含有非线性的不等式约束,那么需要在<code>Df[k,:]</code>中写入该约束的梯度信息,其中<code>k&gt;0</code>,<code>k=0</code>为原问题的梯度. <code>z[0]</code>表示原文题的梯度前面的系数,在调试中发现,cvxopt将其赋值为<code>1</code>,但是有时候也会赋值为<code>None</code>所以就需要判断其值,有如下代码进行判断</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> z <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> f, Df</span><br></pre></td></tr></table></figure>
-<p>当<code>z</code>为<code>0</code>的时候,<code>H</code>就需要计算,略过<code>H</code>的更新,那么这里的逻辑可能是因为<code>H</code>变化不大了，亦或者是结束迭代的标志了,具体也需要去看源码深究.</p>
+<p>当<code>z</code>为<code>0</code>的时候,<code>H</code>就不需要计算,略过<code>H</code>的更新,那么这里的逻辑可能是因为<code>H</code>变化不大了，亦或者是结束迭代的标志了,具体也需要去看源码深究.</p>
 
       
     </div>
