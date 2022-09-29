@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  <meta name="google-site-verification" content="VDyzQYAiah3-LJkPZPp8UVRCHIxrpofZc9OySzKk5Rs" />
+  
+  
+  <title>A simple tutorial for cvxopt | cheng&#39;s blog</title>
+  <meta name="description" content="针对官方cvxopt文档中的nonlinear optimization进行一些记录 https:&#x2F;&#x2F;cvxopt.org&#x2F;userguide&#x2F;solvers.html#problems-with-nonlinear-objectives 首先着眼于该示例’Example: equality constrained analytic centering’ 12345678910111213from">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A simple tutorial for cvxopt">
+<meta property="og:url" content="http://example.com/2022/09/02/a-simple-tutorial-for-cvxopt/index.html">
+<meta property="og:site_name" content="城东第一运动员">
+<meta property="og:description" content="针对官方cvxopt文档中的nonlinear optimization进行一些记录 https:&#x2F;&#x2F;cvxopt.org&#x2F;userguide&#x2F;solvers.html#problems-with-nonlinear-objectives 首先着眼于该示例’Example: equality constrained analytic centering’ 12345678910111213from">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-02T06:06:15.000Z">
+<meta property="article:modified_time" content="2022-09-02T12:21:31.678Z">
+<meta property="article:author" content="Cheng Zhang">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/09/02/a-simple-tutorial-for-cvxopt/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="城东第一运动员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">城东第一运动员</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Phd Candidate</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hangzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/coolzc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/u/1768346065" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA/">个人</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96/">组合优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/">随机过程</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%9B%AE%E6%A0%87%E4%BC%98%E5%8C%96/" rel="tag">多目标优化</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%83%B3/" rel="tag">感想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/%E5%A4%9A%E7%9B%AE%E6%A0%87%E4%BC%98%E5%8C%96/" style="font-size: 14px;">多目标优化</a> <a href="/tags/%E6%84%9F%E6%83%B3/" style="font-size: 13px;">感想</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 13.5px;">数学</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13px;">算法</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/02/a-simple-tutorial-for-cvxopt/" class="title">A simple tutorial for cvxopt</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-02T06:06:15.000Z" itemprop="datePublished">2022-09-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/15/little-s-law/" class="title">little&#39;s law</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-15T03:39:27.000Z" itemprop="datePublished">2022-03-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/23/Convex-sets-Convex-optimization/" class="title">Convex sets -- Convex optimization</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-23T05:09:26.000Z" itemprop="datePublished">2022-02-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/15/A-SURVEY-ON-MULTIOBJECTIVE-DESCENT-METHODS/" class="title">论文解读----A SURVEY ON MULTIOBJECTIVE DESCENT METHODS</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-15T12:17:29.000Z" itemprop="datePublished">2022-02-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">优化理论</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/11/Proximal-gradient-methods-for-multiobjective-optimization-and-their-applications/" class="title">Proximal gradient methods for multiobjective problem</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-11T11:00:04.000Z" itemprop="datePublished">2022-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-a-simple-tutorial-for-cvxopt" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      A simple tutorial for cvxopt
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/09/02/a-simple-tutorial-for-cvxopt/" class="article-date">
+	  <time datetime="2022-09-02T06:06:15.000Z" itemprop="datePublished">2022-09-02</time>
+	</a>
+</span>
+        
+        
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/02/a-simple-tutorial-for-cvxopt/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>针对官方cvxopt文档中的nonlinear optimization进行一些记录<br />
+<a target="_blank" rel="noopener" href="https://cvxopt.org/userguide/solvers.html#problems-with-nonlinear-objectives">https://cvxopt.org/userguide/solvers.html#problems-with-nonlinear-objectives</a></p>
+<p>首先着眼于该示例’Example: equality constrained analytic centering’</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> cvxopt <span class="keyword">import</span> solvers, matrix, spdiag, log</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">acent</span>(<span class="params">A, b</span>):</span><br><span class="line">    m, n = A.size</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">F</span>(<span class="params">x=<span class="literal">None</span>, z=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> <span class="number">0</span>, matrix(<span class="number">1.0</span>, (n,<span class="number">1</span>))</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">min</span>(x) &lt;= <span class="number">0.0</span>: <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        f = -<span class="built_in">sum</span>(log(x))</span><br><span class="line">        Df = -(x**-<span class="number">1</span>).T</span><br><span class="line">        <span class="keyword">if</span> z <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> f, Df</span><br><span class="line">        H = spdiag(z[<span class="number">0</span>] * x**-<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> f, Df, H</span><br><span class="line">    <span class="keyword">return</span> solvers.cp(F, A=A, b=b)[<span class="string">&#x27;x&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<p>对上述代码中，这里详细描述其中关于<code>x</code>的判断的代码作用.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> <span class="number">0</span>, matrix(<span class="number">1.0</span>, (n,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>这一段非常重要,因为当第一次cvxopt调用F函数的时候,会传入x=None（具体原因没有深究，我理解为初始化吧…）,这个时候,就需要我们手动去对<code>x</code>进行初始化赋值，根据目标函数的形式，将其初始化一个符合约束的合理的值,例子中的<code>x</code>在分母位置,所以这里的代码是将其全部赋值为<code>1</code>.文档中别的示例也将其赋值为<code>0</code>, 只要是一个合理的值就可以,当然初值的赋值可能会影响到收敛的时间和最终解,这里需要一些技巧提前对目标函数进行分析,然后设置一个合理的初始值.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">min</span>(x) &lt;= <span class="number">0.0</span>: <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<p>这一段代码是同样是保证<code>x</code>在一个合理的定义域范围内,不能违反objective function的定义,但是具体为什么不放在<code>G,h</code>中,目前还没有深究.</p>
+<p><code>spdiag</code>是组装一个hessian矩阵用的，目的是将输入中的向量或矩阵按照规则放置在对角线上<br />
+<code>log,div</code>等方法都是针对<code>matrix</code>变量操作的,算子是对矩阵中的每一个元素分别进行操作的<br />
+<code>G,h</code>是不等式约束<br />
+<code>A,b</code>是等式约束<br />
+<code>Df</code>是<code>f</code>的梯度,需要对objective function事先求解出其derivative funciton后放置在<code>F</code>方法内,确保最终是行向量的形式<br />
+<code>H</code>是Hessian矩阵,需要对objective function事先求解出Hessian矩阵,然后放置在<code>F</code>方法内,确保最终是<code>matrix</code>形式的变量</p>
+<p>cvxopt将Nonlinear Convex Optimization中的不等式约束分为了三种:</p>
+<ul>
+<li>nonnegative orthant,</li>
+<li>second-order cones,</li>
+<li>positive semidefinite cones.<br />
+这三种约束分别需要写入<code>G,h</code>中去,如果原问题含有非线性的不等式约束,那么需要在<code>Df[k,:]</code>中写入该约束的梯度信息,其中<code>k&gt;0</code>,<code>k=0</code>为原问题的梯度. <code>z[0]</code>表示原文题的梯度前面的系数,在调试中发现,cvxopt将其赋值为<code>1</code>,但是有时候也会赋值为<code>None</code>所以就需要判断其值,有如下代码进行判断</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> z <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> f, Df</span><br></pre></td></tr></table></figure>
+<p>当<code>z</code>为<code>0</code>的时候,<code>H</code>就不需要计算,略过<code>H</code>的更新,那么这里的逻辑可能是因为<code>H</code>变化不大了，亦或者是结束迭代的标志了,具体也需要去看源码深究.</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/09/02/a-simple-tutorial-for-cvxopt/" title="A simple tutorial for cvxopt" target="_blank" rel="external">http://example.com/2022/09/02/a-simple-tutorial-for-cvxopt/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">城东第一运动员</span><small class="ml-1x">Phd Candidate</small></a></h3>
+        <div>挣扎于phd的学位,对网络优化,分布式机器学习等领域感兴趣,欢迎交流探讨。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/03/15/little-s-law/" title="little&#39;s law"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/coolzc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/u/1768346065" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+        <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280795468'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280795468%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'IOJmaaUYkjhcLdsIQ4EQhMU6-gzGzoHsz',
+    appKey: 'njLN6CcL67KoB16ye7zSlxoa',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+    <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-X20C5J294L', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  <script src="/js/hexo_resize_image.js"></script>
+</body>
+</html>
